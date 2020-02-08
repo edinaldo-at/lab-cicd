@@ -1,9 +1,12 @@
 package fiap.devops.cicd.labcicd.models;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 public class Task {
 
+    @Id
     private Integer id;
     private String description;
     private Date eventDate;

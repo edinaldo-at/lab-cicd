@@ -7,9 +7,20 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+ 	 stage('Destroy') {
+	    steps {
+	       sh 'docker stop taskapp-mongodb'
+	       sh 'docker rm -f taskapp-mongodb'
+	    }
+	    steps {
+	       sh 'docker stop taskapp-api'
+	       sh 'docker rm -f taskapp-api'
+	    }
+	}
+       
+	 stage('Build') {
             steps {
-               sh 'mvn -B -DskipTests clean package'
+               sh 'docker.compose start'
             }
         }
     }
