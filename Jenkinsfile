@@ -9,6 +9,7 @@ pipeline {
     stages {     
 	 stage('Build') {
 	    steps {
+	       sh 'docker stop taskapp-mongodb'
                sh 'mvn -B -DskipTests clean package'
             }
         }
