@@ -10,10 +10,14 @@ pipeline {
  	 stage('Destroy') {
 	    steps {
 	       sh 'docker stop taskapp-mongodb'
+	    }
+	    steps {
 	       sh 'docker rm -f taskapp-mongodb'
 	    }
 	    steps {
 	       sh 'docker stop taskapp-api'
+	    }
+	    steps {
 	       sh 'docker rm -f taskapp-api'
 	    }
 	}
