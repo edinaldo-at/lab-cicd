@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               sh 'docker-compose up -itd'
+               sh 'docker-compose up -d'
             }
         }
     }
