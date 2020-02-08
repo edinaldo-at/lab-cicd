@@ -23,6 +23,9 @@ pipeline {
 	}
        
 	 stage('Build') {
+	    steps {
+               sh 'mvn -B -DskipTests clean package'
+            }
             steps {
                sh 'docker.compose start'
             }
